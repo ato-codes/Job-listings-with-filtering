@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Job listing website</title>
     <!--Custom style-->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <!--Boxicon CDN-->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
 </head>
@@ -22,7 +23,7 @@
         <div class="card">
             <div class="left">
                 <div class="profile">
-                    <img src="img/photosnap.svg">
+                    <img src="{% static 'img/photosnap.svg' %}">
                 </div>
                 <div class="body">
                     <div class="top">
