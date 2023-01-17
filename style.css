@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+:root{
+
+    /*Colors*/
+    --dark-cyan:hsl(180, 29%, 50%);
+    --background:hsl(180, 52%, 96%);
+    --filter-tablets:hsl(180, 31%, 95%);
+    --dark-grayish-cyan:hsl(180, 8%, 52%);
+    --very-dark-grayish-cyan: hsl(180, 14%, 20%);
+    --lightest-orange: #FBF5F2;
+    
+    /*Margins*/
+    --mb:0.25rem;
+    --mb-0:0.5rem;
+    --mb-1:.5rem;
+    --mb-2: 1rem;
+    --mb-3: 1.5rem;
+    --mb-4: 2rem;
+    --mb-5: 2.5rem;
+    --mb-6: 3rem;
+
+    /*Font*/
+    --body-font: 'Poppins' , sans-serif;
+    --big-font-size:1.25rem;
+    --bigger-font-size:1.5rem;
+    --biggest-font-size:2rem;
+    --h2-font-size:1.25rem;
+    --normal-font-size:.938rem;
+    --smaller-normal-font-size:.813rem;
+    --smallest-normal-font-size:.7rem;
+
+    /*Font weight*/
+    --font-medium:500;
+    --font-semi-bold:600;
+    --font-bold:700;
+    --font-bolder:900;
+
+
+
+}
+*{
+ font-family: var(--body-font);
+
+}
+body{
+    background-color: var(--background);
+}
+
+li{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+    color: var(--DarkerBlue);
+}
+
+nav ul{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+nav ul li{
+    padding: var(--mb-2);
+}
+
+nav ul li a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--dark-cyan);
+    color:white;
+    padding:var(--mb-1);
+    border-radius: 5px;
+}
+
+nav ul li a i{
+    color:white ;
+    padding-right: var(--mb-1);
+    font-size: var(--big-font-size);
+}
+
+.card {
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    margin: var(--mb-5);
+    border-radius: var(--mb-1);
+    padding: var(--mb-1);
+
+}
+.card .left{
+    display: flex;
+    align-items: center;
+}
+
+.card .profile img{
+    width: 70px;
+    padding: 0 var(--mb-2);
+}
+
+.card .body .top{
+    display: flex;
+}
+
+.card .body .top div{
+    margin: 0 var(--mb-0);
+    padding: 0;
+}
+.body .top .title p{
+    color: var(--dark-cyan);
+    font-size: var(--smaller-normal-font-size);
+    text-transform: uppercase;
+    padding: 0.25rem var(--mb-0);
+    font-weight: var(--font-semi-bold);
+}
+.card .body .top .top-tags p{
+    font-size: var(--smallest-normal-font-size);
+    text-transform: uppercase;
+    padding: 0.25rem var(--mb-1);
+    border-radius: var(--mb-2);
+    color: white;
+    font-weight: var(--font-semi-bold);
+}
+.lightTag{
+    background-color: var(--dark-cyan);
+}
+.darkTag{
+    background-color: var(--very-dark-grayish-cyan);
+}
+
+.card .body .main p{
+    padding: 0 var(--mb-1);
+    margin: 0;
+    font-size: var(--normal-font-size);
+    font-weight:var(--font-semi-bold);
+}
+
+.card .body .bottom{
+    display: flex;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+}
+
+.card .body .bottom div{
+    margin: 0 var(--mb-1);
+}
+
+.card .body .bottom div h5{
+    margin: var(--mb-0) 0;
+    font-size: var(--normal-font-size);
+    padding: 0;
+    color: var(--dark-grayish-cyan);
+}
+
+.card .right{
+    display: flex;
+    align-items: center;
+}
+
+.card .tags{
+    display: flex;
+    justify-content: left;
+    margin: var(--mb-2);
+}
+
+
+.card .tags p{
+    margin: 0 var(--mb-1);
+    background-color: var(--background);
+    font-size: var(--smaller-normal-font-size);
+    padding: var(--mb) var(--mb-2);
+    color: var(--dark-cyan);
+    font-weight: var(--font-semi-bold);
+    border-radius: var(--mb);
+}
