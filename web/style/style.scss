@@ -1,0 +1,150 @@
+:root{
+    --Desaturated-Dark-Cyan: hsl(180, 29%, 50%);
+    --Light-Grayish-Cyan-bg : hsl(180, 52%, 96%);
+    --Light-Grayish-Cyan : hsl(180, 31%, 95%);
+    --Dark-Grayish-Cyan: hsl(180, 8%, 52%);
+    --Very-Dark-Grayish-Cyan: hsl(180, 14%, 20%);
+
+    // Font 
+    --font-size : 15px;
+}
+
+
+.attribution { 
+    font-size: 11px; 
+    text-align: center; 
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    z-index: 1;
+
+    a { 
+        color: hsl(228, 45%, 44%); 
+    }
+}
+
+.new-featured{
+    border-left: 10px solid var(--Desaturated-Dark-Cyan);
+}
+
+.new,.featured{
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 25px;
+    
+    p{
+        color: var(--Light-Grayish-Cyan);
+        font-weight: bold;
+        margin: 0;
+    }
+}
+
+.company,.position{
+    font-weight: bold;
+}
+
+.new{
+    background-color: var(--Desaturated-Dark-Cyan);
+}
+
+.featured{
+    background-color: var(--Very-Dark-Grayish-Cyan);
+}
+
+.company{
+    color: var(--Desaturated-Dark-Cyan);
+}
+
+.position{
+    color: var(--Very-Dark-Grayish-Cyan);
+}
+
+.info{
+    color: var(--Dark-Grayish-Cyan);
+}
+
+#cards-list{
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#card-base{
+    background-color: var(--Light-Grayish-Cyan);
+    width: 90%;
+    border-radius: 10px;
+    margin: 0;
+    position: relative;
+}
+
+#tag-base{
+    background-color: var(--Light-Grayish-Cyan);
+    padding: 10px 20px;
+    display: inline-block;
+    margin-left: 10px;
+    border-radius: 5px;
+
+    p{
+        margin: 0;
+        color: var(--Desaturated-Dark-Cyan);
+        font-weight: bold;
+    }
+}
+
+#card-headers{
+    display: grid;
+    grid-template-columns: repeat(3,33.33%);
+    grid-template-rows: 100%;
+    align-items: center;
+    justify-items: center;
+    grid-template-areas: 
+    "company new featured"
+    ;
+
+    .company{
+        grid-area: company;
+    }
+
+    .new{
+        grid-area: new;
+    }
+
+    .featured{
+        grid-area: featured;
+    }
+}
+
+br{
+    height: 10px;
+    width: 100%;
+}
+
+main{
+    display: grid;
+    height: 100%;
+    width: 100%;
+
+    #head {
+        background-color: var(--Desaturated-Dark-Cyan);
+        img{
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+
+body{
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    background-color: var(--Light-Grayish-Cyan-bg);
+    font-size: var(--font-size);
+
+    main{
+        grid-template-rows: 20% 80%;
+        grid-template-columns: 100%;
+
+    }
+}
