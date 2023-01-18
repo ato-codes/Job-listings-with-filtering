@@ -20,6 +20,7 @@
          </nav>
     </header>
     <main>
+        {% for listing in listings%}
         <div class="card">
             <div class="left">
                 <div class="profile">
@@ -28,27 +29,35 @@
                 <div class="body">
                     <div class="top">
                         <div class="title">
-                            <p>Photosnap</p>
+                            <p>{{listing.company}}</p>
                         </div>
+                        {% if listing.new %}
                         <div class="top-tags">
                             <p class="lightTag">new</p>
                         </div>
+                        {% endif %}
+                        {% if listing.featured %}
                         <div class="top-tags">
                             <p class="darkTag" >featured</p>
                         </div>
+                        {% endif %}
                     </div>
                     <div class="main">
-                        <p>Senior Frontend Developer</p>
+                        <p>{{listing.position}}</p>
                     </div>
+
                     <div class="bottom">
                         <div>
-                            <h5>1d ago</h5>
+                            <h5>{{listing.posted_calculator}}</h5>
+                        </div>
+
+              
+
+                        <div>
+                            <h5>{{listing.role}}</h5>
                         </div>
                         <div>
-                            <h5>Full Time</h5>
-                        </div>
-                        <div>
-                            <h5>USA only</h5>
+                            <h5>{{listing.location}}</h5>
                         </div>
                     </div>
                 </div>
@@ -56,24 +65,25 @@
             <div class="right">
                 <div class="tags">
                     <div>
-                        <p>Frontend</p>
-                    </div>
-                
-                    <div>
-                        <p>Senior</p>
+                        <p>{{listing.role}}</p>
                     </div>
                     <div>
-                        <p>HTML</p>
+                        <p>{{listing.level}}</p>
                     </div>
+                    {% for language in listing.language.all %}
                     <div>
-                        <p>CSS</p>
+                        <p>{{language}}</p>
                     </div>
+                    {% endfor%}
+                    {% for tool in listing.tools.all %}
                     <div>
-                        <p>Javascript</p>
+                        <p>{{tool}}</p>
                     </div>
+                    {%endfor%}
                 </div>
             </div>
         </div>
+        {% endfor%}
     </main>
 </body>
 </html>

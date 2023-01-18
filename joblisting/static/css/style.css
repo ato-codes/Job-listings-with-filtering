@@ -11,7 +11,7 @@
     --lightest-orange: #FBF5F2;
     
     /*Margins*/
-    --mb:0.25rem;
+    --mb:0.25em;
     --mb-0:0.5rem;
     --mb-1:.5rem;
     --mb-2: 1rem;
@@ -113,13 +113,13 @@ nav ul li a i{
     color: var(--dark-cyan);
     font-size: var(--smaller-normal-font-size);
     text-transform: uppercase;
-    padding: 0.25rem var(--mb-0);
+    padding: 0;
     font-weight: var(--font-semi-bold);
 }
 .card .body .top .top-tags p{
     font-size: var(--smallest-normal-font-size);
     text-transform: uppercase;
-    padding: 0.25rem var(--mb-1);
+    padding: var(--mb) var(--mb-1);
     border-radius: var(--mb-2);
     color: white;
     font-weight: var(--font-semi-bold);
