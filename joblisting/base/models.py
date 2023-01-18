@@ -43,7 +43,7 @@ level = (
 class Listing(models.Model):
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     company = models.CharField(max_length=250)
-    logo = models.FileField(upload_to='img/', blank=True, null=True)
+    logo = models.CharField(blank=True, null=True, max_length=300)
     new = models.BooleanField(default=False)
     featured = models.BooleanField(default=False)
     position = models.CharField(max_length=250)
