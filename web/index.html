@@ -11,8 +11,36 @@
 </head>
 <body>
   <main>
+    <div id="add_new_job">
+      <form id="form-add-job" action="/addjob" method="post">
+        <h1>Add New JOB</h1>
+        <input type="text" name="company" placeholder="Company" required>
+        <input type="file" name="logo" id="logo" accept="image/*">
+        <input type="text" name="position" placeholder="position" required>
+        <input type="text" name="role" placeholder="Role" required>
+        <input type="text" name="level" placeholder="level" required>
+        <input type="hidden" name="contract" id="contract">
+        <div id="part-time-full-time">
+          <div id="option-fulltime" class="opt-checkbox">
+            <label for="checkbox">Part Time</label>
+            <input type="checkbox" name="parttime" class="check-box" id="checkbox-parttime" checked value="Part Time">
+          </div>
+          <div id="option-fulltime" class="opt-checkbox">
+            <label for="checkbox">Full Time</label>
+            <input type="checkbox" name="fulltime" class="check-box" id="checkbox-fulltime">
+          </div>
+        </div>
+        <input type="text" name="location" placeholder="location" required>
+        <input type="text" name="languages" placeholder="type your programming language, separate with comma" required>
+        <input type="text" name="tools" placeholder="type your tools framework, separate with comma">
+        
+        <button type="submit">ADD TO JOB LIST</button>
+      
+      </form>
+      <div id="ico"><p>+</p></div>
+    </div>
+
     <div id="head">
-      <img src="images/bg-header-mobile.svg" alt="">
     </div>
     <div id="cards-list"></div>
   </main>

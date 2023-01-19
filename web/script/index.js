@@ -1,281 +1,270 @@
-const jobs = [
-  {
-    "id": 1,
-    "company": "Photosnap",
-    "logo": "./images/photosnap.svg",
-    "_new": true,
-    "featured": true,
-    "position": "Senior Frontend Developer",
-    "role": "Frontend",
-    "level": "Senior",
-    "postedAt": "1d ago",
-    "contract": "Full Time",
-    "location": "USA Only",
-    "languages": ["HTML", "CSS", "JavaScript"],
-    "tools": []
-  },
-  {
-    "id": 2,
-    "company": "Manage",
-    "logo": "./images/manage.svg",
-    "_new": true,
-    "featured": true,
-    "position": "Fullstack Developer",
-    "role": "Fullstack",
-    "level": "Midweight",
-    "postedAt": "1d ago",
-    "contract": "Part Time",
-    "location": "Remote",
-    "languages": ["Python"],
-    "tools": ["React"]
-  },
-  {
-    "id": 3,
-    "company": "Account",
-    "logo": "./images/account.svg",
-    "_new": true,
-    "featured": false,
-    "position": "Junior Frontend Developer",
-    "role": "Frontend",
-    "level": "Junior",
-    "postedAt": "2d ago",
-    "contract": "Part Time",
-    "location": "USA Only",
-    "languages": ["JavaScript"],
-    "tools": ["React", "Sass"]
-  },
-  {
-    "id": 4,
-    "company": "MyHome",
-    "logo": "./images/myhome.svg",
-    "_new": false,
-    "featured": false,
-    "position": "Junior Frontend Developer",
-    "role": "Frontend",
-    "level": "Junior",
-    "postedAt": "5d ago",
-    "contract": "Contract",
-    "location": "USA Only",
-    "languages": ["CSS", "JavaScript"],
-    "tools": []
-  },
-  {
-    "id": 5,
-    "company": "Loop Studios",
-    "logo": "./images/loop-studios.svg",
-    "_new": false,
-    "featured": false,
-    "position": "Software Engineer",
-    "role": "Fullstack",
-    "level": "Midweight",
-    "postedAt": "1w ago",
-    "contract": "Full Time",
-    "location": "Worldwide",
-    "languages": ["JavaScript"],
-    "tools": ["Ruby", "Sass"]
-  },
-  {
-    "id": 6,
-    "company": "FaceIt",
-    "logo": "./images/faceit.svg",
-    "_new": false,
-    "featured": false,
-    "position": "Junior Backend Developer",
-    "role": "Backend",
-    "level": "Junior",
-    "postedAt": "2w ago",
-    "contract": "Full Time",
-    "location": "UK Only",
-    "languages": ["Ruby"],
-    "tools": ["RoR"]
-  },
-  {
-    "id": 7,
-    "company": "Shortly",
-    "logo": "./images/shortly.svg",
-    "_new": false,
-    "featured": false,
-    "position": "Junior Developer",
-    "role": "Frontend",
-    "level": "Junior",
-    "postedAt": "2w ago",
-    "contract": "Full Time",
-    "location": "Worldwide",
-    "languages": ["HTML", "JavaScript"],
-    "tools": ["Sass"]
-  },
-  {
-    "id": 8,
-    "company": "Insure",
-    "logo": "./images/insure.svg",
-    "_new": false,
-    "featured": false,
-    "position": "Junior Frontend Developer",
-    "role": "Frontend",
-    "level": "Junior",
-    "postedAt": "2w ago",
-    "contract": "Full Time",
-    "location": "USA Only",
-    "languages": ["JavaScript"],
-    "tools": ["Vue", "Sass"]
-  },
-  {
-    "id": 9,
-    "company": "Eyecam Co.",
-    "logo": "./images/eyecam-co.svg",
-    "_new": false,
-    "featured": false,
-    "position": "Full Stack Engineer",
-    "role": "Fullstack",
-    "level": "Midweight",
-    "postedAt": "3w ago",
-    "contract": "Full Time",
-    "location": "Worldwide",
-    "languages": ["JavaScript", "Python"],
-    "tools": ["Django"]
-  },
-  {
-    "id": 10,
-    "company": "The Air Filter Company",
-    "logo": "./images/the-air-filter-company.svg",
-    "_new": false,
-    "featured": false,
-    "position": "Front-end Dev",
-    "role": "Frontend",
-    "level": "Junior",
-    "postedAt": "1mo ago",
-    "contract": "Part Time",
-    "location": "Worldwide",
-    "languages": ["JavaScript"],
-    "tools": ["React", "Sass"]
-  }
-]
-
-// {
-//     "id": 1,
-//     "company": "Photosnap",
-//     "logo": "./images/photosnap.svg",
-//     "new": true,
-//     "featured": true,
-//     "position": "Senior Frontend Developer",
-//     "role": "Frontend",
-//     "level": "Senior",
-//     "postedAt": "1d ago",
-//     "contract": "Full Time",
-//     "location": "USA Only",
-//     "languages": ["HTML", "CSS", "JavaScript"],
-//     "tools": []
-//   }
 
 class Card{
-    constructor({id,company,logo,_new,featured,position,role,level,postedAt,contract,location,languages,tools}){
-        this.id = id
-        this.company = company
-        this.logo = logo
-        this._new = _new
-        this.featured = featured
-        this.position = position
-        this.role = role
-        this.level = level
-        this.postedAt = postedAt
-        this.contract = contract
-        this.location = location
-        this.languages = languages
-        this.tools = tools
-    }
+  constructor({_id,company,logo,_new,featured,position,role,level,postedAt,contract,location,languages,tools}){
+      this._id = _id
+      this.company = company
+      this.logo = logo
+      this._new = _new
+      this.featured = featured
+      this.position = position
+      this.role = role
+      this.level = level
+      this.postedAt = postedAt
+      this.contract = contract
+      this.location = location
+      this.languages = languages
+      this.tools = tools
+  }
 
-    identifier({text_content,className}){
-        const identifer_base = document.createElement('div')
-        identifer_base.className = className
+  generate_tags({_id='tag-base',_className='card-tag',textContent}){
+      
+      const tag_base = document.createElement('div')
+      tag_base.id = _id
+      tag_base.className = `${_className} ${textContent}`
 
-        const txt = document.createElement('p')
-        txt.textContent = text_content
-        
-        identifer_base.append(txt)
-        return identifer_base
-    }
+      const p = document.createElement('p')
+      p.textContent = textContent
 
-    tags({name}){
-        const tag_base = document.createElement('div')
-        tag_base.id = 'tag-base'
+      tag_base.append(p)
+      return tag_base
+  }
 
-        const p = document.createElement('p')
-        p.textContent = name
+  new_featured_tab({_new}){
+      const tab_base = document.createElement('div')
+      const p = document.createElement('p')
 
-        tag_base.append(p)
-        return tag_base
-    }
-    
-    get card(){
-        const base = document.createElement('div')
-        base.id = 'card-base'
+      if(_new){
+          tab_base.className = 'new'
+          p.textContent = 'NEW!'
+      }else{
+          tab_base.className = 'featured'
+          p.textContent = 'FEATURED'
+      }
+      tab_base.append(p)
+      return tab_base
 
+  }
 
-        if(this._new || this.featured){
-            base.classList.add('new-featured')
-        }
-        
-        const logo = document.createElement('img')
-        logo.setAttribute('src',this.logo)
+  generate_divs({ids,_class,type}){
+      const generated = []
+      for(let i = 0; i < ids.length; i++){
+          const element = document.createElement(type)
+          typeof ids === 'object'
+          ?element.id = ids[i]
+          :element.id = ids
 
-        const card_details = document.createElement('div')
-        card_details.id = 'card-details'
-        
-        const card_headers = document.createElement('div')
-        card_headers.id = 'card-headers'
+          generated.push(element)
+      }
+      return generated
+  }
 
-        const company = document.createElement('p')
-        company.className = 'company'
-        company.textContent = this.company
+  get card(){
+      const card_base = document.createElement('div')
+      card_base.id = 'card-base'
 
-        if(this._new){
-            const n = this.identifier({text_content : 'NEW!',className:'new'})
-            card_headers.append(n)    
-        }
-        if(this.featured){
-            const f = this.identifier({text_content : 'FEATURED',className:'featured'})
-            card_headers.append(f)
-        }
+      if(this.featured || this._new)card_base.className = 'featured-new'
 
-        const position = document.createElement('p')
-        position.className = 'position'
-        position.textContent = this.position
-        
-        const info_div = document.createElement('div')
-        info_div.id = 'info-div'
+      const wrapper = document.createElement('div')
+      wrapper.id = 'card-wrapper'
 
-        const [postedAt,contract,location] = [document.createElement('p'),document.createElement('p'),document.createElement('p')]
-        postedAt.className = 'info position-at'
-        postedAt.textContent = this.postedAt
-        contract.className = 'info contract'
-        contract.textContent = this.contract
-        location.className = 'info location'
-        location.textContent = this.location
+      const [description,line,tags] = this.generate_divs({
+          ids:['card-description','card-line','card-tags'],
+          type:'div'
+      })
+      
+      const [card_info,position_info,time_info] = this.generate_divs({
+          ids : ['card-info','position-info','time-info'],
+          type : 'div'
+      })
 
-        const br = document.createElement('br')
+      const [company,position] = [document.createElement('p'),document.createElement('p')]
+      company.id = 'company'
+      company.textContent = this.company
 
-        const tags_div = document.createElement('div')
-        tags_div.id = 'tags-div'
-        
-        const tags = [this.role,this.level,...this.languages]
-        
-        for(let tag of tags){
-            const _tag = this.tags({name : tag})
-            tags_div.append(_tag)
-        }
+      position.id = 'position'
+      position.textContent = this.position
 
-        card_headers.append(company)
-        info_div.append(postedAt,contract,location)
-        card_details.append(card_headers,position,info_div)
-        base.append(logo,card_details,br,tags_div)
-        return base
-    }
+      const [postedAt,contract,location] = this.generate_divs({ids:'info',type:'p'})
+      postedAt.textContent = `${this.postedAt}\t.`
+      contract.textContent = `${this.contract}\t.`
+      location.textContent = this.location
+
+      const _tags = [this.role,this.level,...this.tools,...this.languages]
+
+      for(let _tag of _tags){
+          const tag_div = this.generate_tags({
+              textContent:_tag
+          })
+          tags.append(tag_div)
+      }
+
+      const _logo = document.createElement('img')
+      _logo.setAttribute('src',this.logo)
+      _logo.id = 'card-logo'
+
+      time_info.append(postedAt,contract,location)
+      position_info.append(position)
+      card_info.append(company)
+      if(this._new){
+          let _new = this.new_featured_tab({_new:true})
+          card_info.append(_new)
+      }
+      if(this.featured){
+          let featured = this.new_featured_tab({_new:false})    
+          card_info.append(featured)
+      }
+      description.append(card_info,position_info,time_info)
+      wrapper.append(_logo,description,line,tags)
+      card_base.append(wrapper)
+      return card_base
+  }
 }
 
+class Tags extends Card{
+
+  tag_search({tags=[]}){
+    const tags_base = document.createElement('div')
+    tags_base.id = 'tags-search'
+
+    const clear = document.createElement('button')
+    clear.id = 'clear'
+    clear.textContent = 'Clear'
+
+    const tags_container = document.createElement('div')
+    tags_container.id = 'tags-container'
+
+    if(tags.length > 0){
+      for(let tag of tags){
+        const tag_div = super.generate_tags({_id:'searching-tag',textContent : tag})
+        const remove = document.createElement('button')
+        remove.id = 'tag-remove-btn'
+        remove.textContent = 'X'
+
+        tag_div.append(remove)
+        tags_container.append(tag_div)
+      }
+    }
+
+    tags_base.append(tags_container,clear)
+    return tags_base
+  }
+
+}
+const {tag_search} = new Tags({})
 const cards_list = document.getElementById('cards-list')
-for(let job of jobs){
-    const card_base = new Card(job)
-    const card = card_base.card
+const head = document.getElementById('head')
 
-    cards_list.append(card)
+let tags_s = []
+
+const get_data = ({path,filter}) =>{
+  const api_url = 'http://127.0.0.1:3000/'
+  if(!path)return "Path Not Specified"
+
+  fetch(api_url + path)
+  .then(data => data.json())
+  .then(data => {
+    const founded = []
+    if(filter && filter.length > 0){
+      const searching_div = tag_search({tags:filter})
+      head.innerHTML = ''
+      head.append(searching_div)
+      
+      const clear = document.getElementById('clear')
+      const tag_rmv_btns = document.querySelectorAll('#tag-remove-btn')
+
+      for(let tag_rmv_btn of tag_rmv_btns){
+        tag_rmv_btn.onclick = () =>{
+    
+          const tag_name = tag_rmv_btn.parentElement.classList[1]
+          
+          filter = filter.filter(tag => {
+            if(tag != tag_name){
+              return tag
+            }
+          })
+          
+          if(filter.length === 0)searching_div.remove()          
+
+          tags_s = filter
+          get_data({path:path,filter:filter})
+        }
+      }
+      for(let d of data){
+        const tags = [d.role,...d.tools,...d.languages]
+        for(let f of filter){
+          if(tags.includes(f)){
+            founded.push(d)
+          }
+        }
+      }
+      
+      data = founded
+      clear.onclick = () => {
+        tags_s = []
+        searching_div.remove()
+        get_data({path:path,filter:tags_s})
+      }
+    }
+    return make_cards(data)
+  })
+  .catch(err => {
+    if(err){
+      console.log(err)
+      console.log('Trying Again After 3 seconds')
+      setTimeout(()=>{
+        get_data(path)
+      },3000)
+    }
+  })
 }
+
+const make_cards = (datas) =>{
+  cards_list.innerHTML = ''
+  for(let data of datas){
+    const card_base = new Card(data)
+    const card = card_base.card
+    cards_list.append(card)
+  }
+  
+  const tags = document.querySelectorAll('#tag-base')
+  for(let tag of tags){
+    const _tags = tag.classList[1]
+    tag.onclick = () => {
+      tags_s.push(_tags)
+      cards_list.innerHTML = ''
+      console.log(tags_s)
+      return get_data({path:'jobs',filter:tags_s})
+    }
+  }
+  return
+}
+
+get_data({path:'jobs'})
+
+const add_job = document.getElementById('ico')
+const checkboxes = document.querySelectorAll('.check-box')
+const contract = document.getElementById('contract')
+const form_add_job = document.getElementById('form-add-job')
+checkboxes.forEach((checkbox,index)=>{
+  let _index = 1
+  let part_time
+  checkbox.onchange = () =>{
+    if(index === 0){
+      _index = 1
+      part_time = 'Part Time'
+    }else{
+      _index = 0
+      part_time = 'Full Time'
+    }
+    if(!checkbox.getAttribute('checked')){
+      checkboxes[_index].checked = false
+      checkbox.checked = true
+
+    }
+    contract.value = part_time
+    console.log(contract)
+  }
+})
+
+add_job.onclick = () => form_add_job.classList.toggle('view-flex')
+// add_job.onclick = () =>
