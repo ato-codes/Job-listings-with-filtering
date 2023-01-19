@@ -24,10 +24,17 @@ ato-codes@DESKTOP-RCHLB5D MINGW64 ~/Desktop/static-job-listings-master/server (a
 - Finally go your browser and go to this link http://127.0.0.1:3000 
 
 This Should Start Up the web app. Enjoy And Tnx. 
-### Screen Shots
+# Screen Shots
+### <ins>Desktop Version</ins>
 
 ![desktop-normal-preview](screenshots/desktop-version%20(3).png)
 ![searching-by-tag](screenshots/desktop-version%20(2).png)
 ![desktop-adding-job](screenshots/desktop-version%20(1).png)
+
+### <ins>Mobile Version</ins>
+
+![mobile-normal-preview](screenshots/mobile-version%20(3).png)
+![searching-by-tag](screenshots/mobile-version%20(2).png)
+![mobile-adding-job](screenshots/mobile-version%20(1).png)
 
 # ።
