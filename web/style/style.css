@@ -27,6 +27,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  z-index: 1;
 }
 #add_new_job #ico {
   height: 35px;
