@@ -146,6 +146,7 @@ button{
 #cards-list{
     display: grid;
     grid-row-gap: 5%;
+    align-items: start;
     overflow-y: auto;
     justify-items: center;
 }

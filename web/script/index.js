@@ -153,13 +153,16 @@ class Tags extends Card{
 const {tag_search} = new Tags({})
 const cards_list = document.getElementById('cards-list')
 const head = document.getElementById('head')
-
 let tags_s = []
 
 const get_data = ({path,filter}) =>{
-  const api_url = 'http://127.0.0.1:3000/'
-  if(!path)return "Path Not Specified"
+  // * CHANGE THE API URL TO YOUR PC IP ADDRESS 
+  // * AND ALSO ON YOUR WEB BROWSER TYPE THE IP ADDRESS AND THE PORT AS 1000
+  // * BUT CAN BE CHANGED AT SERVER CODE ✌✌
 
+  const api_url = 'http://127.0.0.1:1000/'
+  if(!path)return "Path Not Specified"
+  console.log(api_url)
   fetch(api_url + path)
   .then(data => data.json())
   .then(data => {
@@ -232,14 +235,13 @@ const make_cards = (datas) =>{
     tag.onclick = () => {
       tags_s.push(_tags)
       cards_list.innerHTML = ''
-      console.log(tags_s)
       return get_data({path:'jobs',filter:tags_s})
     }
   }
   return
 }
-
 get_data({path:'jobs'})
+
 
 const add_job = document.getElementById('ico')
 const checkboxes = document.querySelectorAll('.check-box')
@@ -265,6 +267,5 @@ checkboxes.forEach((checkbox,index)=>{
     console.log(contract)
   }
 })
-
 add_job.onclick = () => form_add_job.classList.toggle('view-flex')
 // add_job.onclick = () =>

@@ -12,7 +12,7 @@ const app = express()
 app.use(body_parser.urlencoded({extended:true}))
 app.use(express.static(web_path))
 app.use(cors({
-    origin : '*'
+    origin:'*'
 }))
 
 mongoose.set('strictQuery',true)
@@ -78,4 +78,4 @@ app.post('/addjob',(req,res)=>{
     })
 })
 
-app.listen(3000,()=>console.log('server started on port 3000'))
+app.listen(1000,()=>console.log('server started on port 3000'))
