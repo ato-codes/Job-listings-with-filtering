@@ -177,3 +177,48 @@ nav ul li a i{
     font-weight: var(--font-semi-bold);
     border-radius: var(--mb);
 }
+
+/*------------------------------*/
+
+.addForm{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: auto;
+}
+input{
+    margin: var(--mb-1);
+    padding: var(--mb-2);
+    border-radius: var(--mb);
+    border: none;
+    outline: none;
+    background-color: white;
+}
+.input-field input{
+    width: 85%;
+}
+.radio-buttons{
+    display: flex;
+}
+.radio-buttons div{
+    display: flex;
+}
+.radio-buttons div p{
+    margin: var(--mb-1);
+}
+.dropdowns{
+    display: flex;
+    justify-content: space-evenly;
+    width: 92%;
+}
+.dropdowns select{
+    width: 100%;
+
+}
+input[type="button"]{
+    width: 25%;
+    margin: var(--mb-2) auto;
+    background-color: var(--dark-cyan);
+    color: white;
+    font-size: var(--normal-font-size);
+}

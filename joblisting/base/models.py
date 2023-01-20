@@ -4,12 +4,13 @@ from django.core.validators import FileExtensionValidator
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
-
+from taggit.managers import TaggableManager
 # Create your models here.
 
 
 class Language(models.Model):
     name = models.CharField(max_length=200)
+    created_for = models.CharField(max_length=200, blank=True, null=True)
 
     def __str__(self):
         return self.name
@@ -17,15 +18,12 @@ class Language(models.Model):
 
 class Tool(models.Model):
     name = models.CharField(max_length=200)
+    created_for = models.CharField(max_length=200, blank=True, null=True)
 
     def __str__(self):
         return self.name
 
-class Role(models.Model):
-    name = models.CharField(max_length=200)
 
-    def __str__(self):
-        return self.name
 
 
 contract = (
@@ -39,18 +37,22 @@ level = (
     ("Entry", "Entry"),
     ("No experience required", "No experience required"),
 )
-
+role = (
+    ("Frontend", "Frontend"),
+    ("Backend", "Backend"),
+    ("Fullstack", "Fullstack"),
+)
 class Listing(models.Model):
-    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    user = models.CharField(default=User, max_length=200)
     company = models.CharField(max_length=250)
     logo = models.CharField(blank=True, null=True, max_length=300)
     new = models.BooleanField(default=False)
     featured = models.BooleanField(default=False)
     position = models.CharField(max_length=250)
-    role = models.ForeignKey(Role, on_delete=models.CASCADE)
-    level = models.CharField("Level", max_length=250, choices=level)
-    contract = models.CharField("Contract", max_length=20, choices=contract)
-    location = models.CharField(max_length=250)
+    role = models.CharField(default="", max_length=250, choices=role,blank=True, null=True,)
+    level = models.CharField(default="", max_length=250, choices=level,blank=True, null=True,)
+    contract = models.CharField(default="", max_length=20, choices=contract,blank=True, null=True,)
+    location = models.CharField(max_length=250,blank=True, null=True,)
     language = models.ManyToManyField(Language, blank=True)
     tools = models.ManyToManyField(Tool, blank=True)
     posted_at = models.DateTimeField(auto_now_add=True)
