@@ -2,8 +2,8 @@
 # Job Listing webapp
 
 ## Demo
-    ![Home page](repo-image/img1.png)
-    ![Add Job posts page](repo-image/img.png)
+    [Home page](https://github.com/ato-codes/Job-listings-with-filtering/blob/dagm/repo-image/img2.png/?raw=true)
+    ![Add Job posts page](https://github.com/ato-codes/Job-listings-with-filtering/blob/dagm/repo-image/img1.png?raw=true)
 ### Requirements
 
 * [Python](https://www.python.org/downloads/)
