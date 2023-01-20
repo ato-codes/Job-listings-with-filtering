@@ -37,7 +37,7 @@ env\Scripts\activate
 ```
 pip install -r requirements.txt
 ```
-### Step 6 - Move to project directory
+### Step 6 - Change into project directory
 
 ```
 cd joblisting
