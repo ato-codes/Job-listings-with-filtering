@@ -5,16 +5,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Registration Form in HTML CSS</title>
+    <title>Create Job Postings</title>
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <!---Custom CSS File--->
     <link rel="stylesheet" href="{% static 'css/add.css' %}" />
+    <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
   </head>
-  <form method="post">
-    {% csrf_token %}
     <section class="container">
-      <header>Create Job Postings</header>
       <action action="#" class="form">
+      <form method="post">
+        {% csrf_token %}
+      <header>Create Job Postings</header>
         <div class="input-box">
           <label>Company name</label>
           {{form.company}}
@@ -24,20 +25,24 @@
           <label>Logo</label>
           {{form.logo}}
         </div>
-        <div class="gender-box">
-            <h3>Status</h3>
-          <div class="gender-option">
-            <div class="gender">
+        <div class="status-box">
+            <p>Status</p>
+          <div class="status-option">
+            <div class="status">
               {{form.new}}
-              <label for="check-male">New</label>
+              <label>New</label>
             </div>
             <div class="gender">
               {{form.featured}}
-              <label for="check-female">Featured</label>
+              <label>Featured</label>
             </div>
           </div>
         </div>
-        <div class="input-box address">
+        <div class="input-box">
+          <label>Position</label>
+          {{form.position}}
+        </div>
+        <div class="input-box">
           <label>Location</label>
           {{form.location}}
           <div class="column">
@@ -46,44 +51,82 @@
             </div>
             <div class="select-box">
                   {{form.contract}}
-                
+          
             </div>
             <div class="select-box">
                   {{form.role}}
               </div>
           </div>
-          <div class="column">
-            <div class="input-box">
-                <label>Languages</label>
-                <div class="tabs" id="languagetabs">
-
-                </div>
-                <input type="text" id="SlanguageInput" name="language">
-                <div class="add_tab">
-                    
-                    <input type="text" placeholder="Add languages" id="languageInput" />
-                    <button id="addLanguage" type="button">Add</button>
-                </div>
-              </div>
-          </div>
-          <div class="column">
-            <div class="input-box">
-                <label>Tools</label>
-                <div class="tabs" id="toolTabs">
-                </div>
-                <input type="text" id="StoolsInput" name="tools">
-                <div class="add_tab">
-                    <input type="text" placeholder="Add Tools" name ="toolsInput" id="toolsInput"/>
-                    <button id="addTool" type="button">Add</button>
-                </div>
-              </div>
-          </div>
         </div>
-        <button type="submit">Submit</button>
-    </action>
-    
-    </section>
-</form>
+          <button type="submit" class="submit-btn">Submit</button>
+      </form>
+    <div class="column">
+      <div class="input-box">
+          <label>Languages</label>
+          <div class="tabs" id="languagetabs">
+          </div>
+            <form action="" method="post" id="languageForm">
+              <div class="add_tab">
+                <input type="text" placeholder="Add languages" id="languageInput" name="languageInput" />
+                <button id="addLanguage" type="submit">Add</button>
+              </div>
+            </form>
+        </div>
+    </div>
+    <div class="column uo">
+      <div class="input-box">
+          <label>Tools</label>
+          <div class="tabs" id="toolstabs">
+          </div>
+          <form method="post" id="toolsForm">
+            <div class="add_tab">
+                <input type="text" placeholder="Add Tools" name ="toolsInput" id="toolsInput"/>
+                <button id="addTool" type="submit">Add</button>
+            </div>
+          </form>
+        </div>
+    </div>
+        
+      <action action="#" class="form">
+        <div class="btn-home"></div>
+  </section>
+
   </body>
-  <script src="{% static 'JS/main.js' %}"></script>
+
+
+  <script>
+      $('#languageForm').on('submit', function(e) {
+        e.preventDefault(); 
+  
+        $.ajax({
+            type:'POST',
+            url:'{% url "add" %}',
+            data:
+            {
+              languageInput:$("#languageInput").val(),
+              csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val()
+            },
+            success: function(){
+              $("#languagetabs").append($("<div class='tab'>").html("<div class='tab'>"+"<p>"+ $('#languageInput').val()+"</p>"+"</div>"))
+              $("#languageInput").val("")
+            }
+        })
+})
+$('#toolsForm').on('submit', function(e) {
+        e.preventDefault(); 
+        $.ajax({
+            type:'POST',
+            url:'{% url "add" %}',
+            data:
+            {
+              toolsInput:$("#toolsInput").val(),
+              csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val()
+            },
+            success: function(){
+              $("#toolstabs").append($("<div class='tab'>").html("<div class='tab'>"+"<p>"+ $('#toolsInput').val()+"</p>"+"</div>"))
+              $("#toolsInput").val("")
+            }
+        })
+})
+  </script>
 </html>

@@ -155,7 +155,6 @@ nav ul li a i{
     padding: 0;
     color: var(--dark-grayish-cyan);
 }
-
 .card .right{
     display: flex;
     align-items: center;

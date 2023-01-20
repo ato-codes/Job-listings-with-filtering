@@ -1,12 +1,11 @@
-from django.forms import ModelForm, widgets
 from django import forms
 from .models import Listing
 
-class ListingForm(ModelForm):
+class ListingForm(forms.ModelForm):
     class Meta:
         model = Listing
         exclude = ['user',]
     widgets = {
-        'language': forms.Select(),
-        'tools': forms.RadioSelect(),
+        'language': forms.CharField(),
+        'tools': forms.CharField(),
     }

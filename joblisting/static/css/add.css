@@ -1,6 +1,45 @@
-/* Import Google font - Poppins */
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
-* {
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+:root{
+
+    /*Colors*/
+    --dark-cyan:hsl(180, 29%, 50%);
+    --background:hsl(180, 52%, 96%);
+    --filter-tablets:hsl(180, 31%, 95%);
+    --dark-grayish-cyan:hsl(180, 8%, 52%);
+    --very-dark-grayish-cyan: hsl(180, 14%, 20%);
+    --lightest-orange: #FBF5F2;
+    
+    /*Margins*/
+    --mb:0.25em;
+    --mb-0:0.5rem;
+    --mb-1:.5rem;
+    --mb-2: 1rem;
+    --mb-3: 1.5rem;
+    --mb-4: 2rem;
+    --mb-5: 2.5rem;
+    --mb-6: 3rem;
+
+    /*Font*/
+    --body-font: 'Poppins' , sans-serif;
+    --big-font-size:1.25rem;
+    --bigger-font-size:1.5rem;
+    --biggest-font-size:2rem;
+    --h2-font-size:1.25rem;
+    --normal-font-size:.938rem;
+    --smaller-normal-font-size:.813rem;
+    --smallest-normal-font-size:.7rem;
+
+    /*Font weight*/
+    --font-medium:500;
+    --font-semi-bold:600;
+    --font-bold:700;
+    --font-bolder:900;
+
+
+
+}
+*{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -12,7 +51,7 @@ body {
   align-items: center;
   justify-content: center;
   padding: 20px;
-  background: rgb(130, 106, 251);
+  background: var(--background);
 }
 .container {
   position: relative;
@@ -22,6 +61,7 @@ body {
   padding: 25px;
   border-radius: 8px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  position: relative;
 }
 .container header {
   font-size: 1.5rem;
@@ -58,47 +98,17 @@ body {
   display: flex;
   column-gap: 15px;
 }
-.form .gender-box {
-  margin-top: 20px;
-}
-.gender-box h3 {
-  color: #333;
-  font-size: 1rem;
-  font-weight: 400;
-  margin-bottom: 8px;
-}
-.form :where(.gender-option, .gender) {
-  display: flex;
-  align-items: center;
-  column-gap: 50px;
-  flex-wrap: wrap;
-}
-.form .gender {
-  column-gap: 5px;
-}
-.gender input {
-  accent-color: rgb(130, 106, 251);
-}
-.form :where(.gender input, .gender label) {
-  cursor: pointer;
-}
-.gender label {
-  color: #707070;
-}
-.address :where(input, .select-box) {
-  margin-top: 15px;
-}
+
 .select-box select {
   height: 100%;
   width: 100%;
   outline: none;
   border: none;
-  color: #707070;
+  color: var(--very-dark-grayish-cyan);
   font-size: 1rem;
 }
 .form button {
   height: 55px;
-  width: 100%;
   color: #fff;
   font-size: 1rem;
   font-weight: 400;
@@ -106,19 +116,10 @@ body {
   border: none;
   cursor: pointer;
   transition: all 0.2s ease;
-  background: rgb(130, 106, 251);
+  background: var(--dark-cyan);
 }
 .form button:hover {
-  background: rgb(88, 56, 250);
-}
-/*Responsive*/
-@media screen and (max-width: 500px) {
-  .form .column {
-    flex-wrap: wrap;
-  }
-  .form :where(.gender-option, .gender) {
-    row-gap: 15px;
-  }
+  background: var(--dark-cyan);
 }
 
 ::selection{
@@ -156,7 +157,7 @@ body {
     padding: 7px;
     margin: 12px 0;
     border-radius: 5px;
-    border: 1px solid #a6a6a6;
+    border: 1px solid --dark-grayish-cyan;
   }
   .content ul  li{
     color: #333;
@@ -196,11 +197,23 @@ body {
     cursor: pointer;
     padding: 9px 15px;
     border-radius: 5px;
-    background: #5372F0;
+    background: var(--dark-cyan);
     transition: background 0.3s ease;
   }
   .details button:hover{
     background: #2c52ed;
+  }
+  .status-box{
+    margin-top: 20px;
+  }
+  .status-option{
+    display: flex;
+    justify-content: space-between;
+    width: 30%;
+  }
+  .status-option div{
+    margin-top: var(--mb-1);
+    padding: var(--mb);
   }
 
   .tabs {
@@ -208,20 +221,18 @@ body {
     display: flex;
   }
   .tabs .tab{
-    background-color: #ddd;
-    padding: 0.5rem;
-    margin-right: 0.5rem;
-    border-radius: 0.25rem;
-    width: fit-content;
     display: flex;
     align-items: center;
   }
-  .selected-tab{
-    background-color: #5372F0;
-  }
   .tabs .tab p{
-    font-size: 0.8rem;
-  }
+    margin: 0 var(--mb-1);
+    background-color: var(--background);
+    font-size: var(--smaller-normal-font-size);
+    padding: var(--mb) var(--mb-2);
+    color: var(--dark-cyan);
+    font-weight: var(--font-semi-bold);
+    border-radius: var(--mb);
+}
   .tabs .tab i{
     padding-left: 0.25rem;
     font-size: 1rem;
@@ -247,10 +258,39 @@ body {
     outline: none;
     font-size: 16px;
   }
-
+  select#id_language {
+    width: 100%;
+    overflow: hidden;
+    padding: 0.75rem 0;
+    height: 25%;
+    border: none;
+    outline: none;
+}
+select#id_language option{
+  background-color: #ddd;
+  padding: 0.5rem;
+  margin: 0.25rem;
+  border-radius: 0.25rem;
+  width: fit-content;
+  display: inline;
+}
 input#StoolsInput {
     display: none;
 }
 input#SlanguageInput {
   display: none;
+}
+.submit-btn{
+  position: absolute;
+  bottom:10px;
+  width: 95%;
+  margin: auto;
+  text-align: center;
+}
+.btn-home{
+  padding: 2rem;
+
+}
+.column.uo {
+  margin-bottom: 2rem;
 }

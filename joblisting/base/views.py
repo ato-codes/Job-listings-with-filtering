@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
-from .models import Listing,Language, Tool
+from .models import Listing, Language, Tool
 from .forms import ListingForm
+from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.auth.models import User
 from django.utils import timezone
 
@@ -16,20 +17,34 @@ def home(request):
         return render(request, "home.html", context)
 
 
-def add(request):
-    form = ListingForm
-
+def add(request, lang_list=[], tools_list=[]):
+    form = ListingForm()
     if request.method == 'POST':
+        language = request.POST.get("languageInput")
+        tools = request.POST.get("toolsInput")
         form = ListingForm(request.POST)
-        Listing.objects.create(user="Dagmawi", company=form['company'].value(), new=form['new'].value(),
-                                 featured=form['featured'].value(), role=form['role'].value(),
-                                 contract=form['contract'].value(), location=form['location'].value(),
-                                 level=form['level'].value())
-        my_listing = Listing.objects.get(company=form['company'].value())
-        for language in form['language'].value():
-            for lang in language.split(","):
-                x = Language.objects.create(name=lang,  created_for= form['company'].value())
-        my_listing.language.add(Language.objects.get())
-        return redirect("/")
+        if language is not None:
+            new_lang = Language(name=language)
+            new_lang.save()
+            lang_list.append(new_lang.id)
+        print(lang_list)
+        if tools is not None:
+            new_tool = Tool(name=tools)
+            new_tool.save()
+            tools_list.append(new_tool.id)
+        print(tools_list)
+        if form.is_valid():
+            form.save()
+            new_listing = Listing.objects.get(company=request.POST.get("company"))
+            for l in lang_list:
+                new_listing.language.add(l)
+            for t in tools_list:
+                new_listing.tools.add(t)
+            new_listing.save()
+
+            return redirect("/")
+
+    lang_list = []
+    tools_list = []
     context = {"form": form}
     return render(request, "add.html", context)
