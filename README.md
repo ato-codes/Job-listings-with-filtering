@@ -13,13 +13,13 @@ All you need it those apps in your working machine and then installing the alrea
 
 - In your terminal go to server directory and type the following 
 ```
-ato-codes@DESKTOP-RCHLB5D MINGW64 ~/Desktop/static-job-listings-master/server (ato-codes) $ npm i
+/static-job-listings-master/server (ato-codes) $ npm i
 ```
 
 - After That You can start the server by typing the following .
 
 ```
-ato-codes@DESKTOP-RCHLB5D MINGW64 ~/Desktop/static-job-listings-master/server (ato-codes) $ node server.js
+static-job-listings-master/server (ato-codes) $ node server.js
 ```
 - Finally go your browser and go to this link http://127.0.0.1:3000 
 
